@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>MINDBODY Noob</title>
+
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/theme.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+  <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+  <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase-simple-login.js'></script>
+	<script src="js/myScript.js"></script>
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+    <button class="btn btn-default" id="newUser" onclick="newUser()">New User</button>
+		<div class="navbar-header">
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active">
+            <form id="loginForm" class="form-inline">
+            <div class="form-group">
+              <input type="text" id="email" class="form-control"  placeholder="Email"> 
+            </div>
+            <div class="form-group">
+              <input type="password" id="pword" class="form-control" placeholder="Password">
+            </div>
+              <button type="button" class="btn btn-default" id="login" onclick="logIn()">Log In</button>
+            </form>
+            <button class="invisible btn btn-default" id="logOut" onclick="logOut()">Log Out</button>
+					</li>		
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container theme-showcase">
+	<div class="jumbotron">
+	<h1 align="center">Welcome, MINDBODY noob!</h1>
+  </div>
+
+<div class="page-header">
+	<h2>Let's Begin</h2>	
+</div>
+
+<div class="well">
+	<p> Your journey an Autobot is in its infancy. Listen closely to supreme leader David's advice, and pay close attention. You will learn bountiful amounts of information over the next few weeks, and form the solid foundation every Autobot needs.<br /><br />My good friend, Mark Twain, once said: <i>"The secret of getting ahead is getting started."</i><br /><br />So let's get started.</p>
+</div>
+
+<div class="page-header">
+	<h2>Things to Know</h2>	
+	<p>Below are <b><i>some</i></b> useful resources for any new Autobot. Check off information as you master it, so you can see your progress!</p>
+  <p id="reminder" style="color:red">Please log in to track your progress.</p>
+</div>
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Motivation!
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+		<input type="checkbox" class="cbox" id="cb1"><a href="https://medium.com/on-coding/2204cfa35233"> Coding</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          HTML
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+		<input type="checkbox" class="cbox" id="cb2"> <a href="http://www.codecademy.com/tracks/web"> Codeacademy</a>
+		<br />
+		<input type="checkbox" class="cbox" id="cb3"> <a href="http://www.html5rocks.com/en/"> HTML5</a>
+		<br />
+		<input type="checkbox" class="cbox" id="cb4"> <a href= "http://www.codecademy.com/glossary/html"> Glossary</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          CSS
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+		<input type="checkbox" class="cbox" id="cb5"><a href="http://www.codecademy.com/tracks/web"> Codeacademy</a>
+		<br />
+		<input type="checkbox" class="cbox" id="cb6"><a href="http://www.w3schools.com/css/"> Documentation</a>
+		<br />
+		<input type="checkbox" class="cbox" id="cb7"><a href="http://www.codecademy.com/glossary/css"> Glossary</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+          JavaScript
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse">
+      <div class="panel-body">
+		<input type="checkbox" class="cbox" id="cb8"><a href="http://www.codecademy.com/tracks/javascript"> Codeacademy</a>
+		<br />
+		<input type="checkbox" class="cbox" id="cb9"><a href="http://www.w3schools.com/js/"> Tutorial</a>
+		<br />
+		<input type="checkbox" class="cbox" id="cb10"><a href="http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/"> Execution Context</a>
+      </div>
+    </div>
+  </div> 
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+          jQuery
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse">
+      <div class="panel-body">
+		<input type="checkbox" class="cbox" id="cb11"><a href="http://jquery.com/"> jQuery</a>
+		<br />
+		<input type="checkbox" class="cbox" id="cb12"><a href="http://jqueryui.com/"> jQueryUI</a>
+      </div>
+    </div>
+  </div> 
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+          C#
+        </a>
+      </h4>
+    </div>
+    <div id="collapseSix" class="panel-collapse collapse">
+      <div class="panel-body">
+		<input type="checkbox" class="cbox" id="cb13"><a href="http://msdn.microsoft.com/en-us/library/618ayhy6.aspx"> C# Documentation</a>
+      </div>
+    </div>
+  </div> 
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+          MVC Design Pattern
+        </a>
+      </h4>
+    </div>
+    <div id="collapseSeven" class="panel-collapse collapse">
+      <div class="panel-body">
+		<input type="checkbox" class="cbox" id="cb14"><a href="http://www.codeproject.com/Articles/25057/Simple-Example-of-MVC-Model-View-Controller-Design"> CSS/HTML</a>
+		<br />
+		<input type="checkbox" class="cbox" id="cb15"><a href="http://www.asp.net/mvc/tutorials/mvc-music-store/mvc-music-store-part-1"> C#</a>
+      </div>
+    </div>
+  </div> 
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseEight">
+          Git
+        </a>
+      </h4>
+    </div>
+    <div id="collapseEight" class="panel-collapse collapse">
+      <div class="panel-body">
+		<input type="checkbox" class="cbox" id="cb16"><a href="http://pcottle.github.com/learnGitBranching/"> Git Tutorial</a> 
+		<br />
+		<input type="checkbox" class="cbox" id="cb17"><a href="http://www.siteground.com/tutorials/git/commands.htm"> Git Commands</a>
+      </div>
+    </div>
+  </div> 
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseNine">
+          Miscellaneous
+        </a>
+      </h4>
+    </div>
+    <div id="collapseNine" class="panel-collapse collapse">
+      <div class="panel-body">
+		<input type="checkbox" class="cbox" id="cb18"><a href="www.codeacademy.com"> Codeacademy</a> 
+		<br />
+		<input type="checkbox" class="cbox" id="cb19"><a href="www.stackoverflow.com"> Stackoverflow</a>
+		<br />
+		<input type="checkbox" class="cbox" id="cb20"><a href="http://en.wikipedia.org/wiki/GRASP_(object-oriented_design)"> Object Oriented Design</a>
+      </div>
+    </div>
+  </div> 
+</div>
+
+<br />
+
+<div class="progress">
+  <div class="progress-bar progress-bar-warning" id="pbar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+    <span class="sr-only"></span>  
+  </div>
+</div>
+
+</body>
+</html>
