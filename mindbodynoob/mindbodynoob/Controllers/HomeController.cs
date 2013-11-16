@@ -20,7 +20,8 @@ namespace mindbodynoob.Controllers
             User newUser = new User(email, password);
 
             //System.Diagnostics.Debug.WriteLine(newUser.GetEmail() + " " + newUser.GetPassword() + " " + newUser.GetCBoxState(0));
-            //newUser.SetCBoxState(0, true);
+            newUser.SetCBoxState(0, true);
+            newUser.SetCBoxState(1, true);
             //System.Diagnostics.Debug.WriteLine(newUser.GetCBoxState(0));
 
             //do some sort of check to see if user exists, return object or null
@@ -31,6 +32,8 @@ namespace mindbodynoob.Controllers
         {
             System.Diagnostics.Debug.WriteLine("CREATE NEW USER -- Email: " + email + " Pass: " + password);
             User newUser = new User(email, password);
+            newUser.SetCBoxState(0, true);
+            newUser.SetCBoxState(1, true);
             //put user in database! then log user in
             return LogIn(email, password);
         }
